@@ -24,6 +24,7 @@ examRecorder 是一套用于考试/问卷/行为数据采集与回放的桌面�
 1. **环境准备**
    - Python 3.8+
    - 推荐使用虚拟环境
+   - 依赖 ffmpeg（用于视频转GIF，可选）
 
 2. **依赖安装**
    ```bash
@@ -39,27 +40,51 @@ examRecorder 是一套用于考试/问卷/行为数据采集与回放的桌面�
 
 - **数据采集 Demo**
 
-  <video src="docs/demo_collect.mp4" controls width="600"></video>
+  ![采集演示](docs/demo_collect.gif)
 
 - **数据回放 Demo**
 
-  <video src="docs/demo_replay.mp4" controls width="600"></video>
+  ![回放演示](docs/demo_replay.gif)
+
+> 如需生成 GIF，可用 ffmpeg 脚本将 mp4 转为 gif，详见下方说明。
 
 ## 目录结构
 
 ```
 examRecorder/
-├── refactory_gui/         # 主程序代码
-├── docs/                 # 文档与演示视频
-│   ├── demo_collect.mp4
-│   └── demo_replay.mp4
+├── gui/                  # 主程序代码
+├── docs/                 # 文档与演示动图
+│   ├── demo_collect.gif
+│   └── demo_replay.gif
 ├── requirements.txt      # 依赖列表
 ├── README.md             # 项目说明
 └── ...
 ```
 
+## 视频转GIF脚本
+
+如需将 mp4 演示视频转为 gif，可使用如下 Python 脚本（需先安装 ffmpeg）：
+
+```python
+import subprocess
+
+def mp4_to_gif(mp4_path, gif_path, fps=10, scale=600):
+    cmd = [
+        'ffmpeg',
+        '-i', mp4_path,
+        '-vf', f'fps={fps},scale={scale}:-1:flags=lanczos',
+        '-y',
+        gif_path
+    ]
+    subprocess.run(cmd, check=True)
+
+# 示例用法
+mp4_to_gif('docs/demo_collect.mp4', 'docs/demo_collect.gif')
+mp4_to_gif('docs/demo_replay.mp4', 'docs/demo_replay.gif')
+```
+
 ## 联系方式
 
-- 作者：Your Name
-- 邮箱：your.email@example.com
+- 作者：ST Xu
+- 邮箱：xvshiting@live.com
 - Issues/PR 欢迎提交！ 
