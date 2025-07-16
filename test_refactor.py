@@ -74,20 +74,20 @@ def test_class_instantiation():
     
     try:
         # 测试数据模型
-        from refactory_gui.models.data_collection_model import DataCollectionModel
+        from gui.models.data_collection_model import DataCollectionModel
         data_model = DataCollectionModel()
         logger.info("✅ DataCollectionModel 实例化成功")
         
         # 测试录制模型
-        from refactory_gui.models.recording_model import RecordingModel
+        from gui.models.recording_model import RecordingModel
         recording_model = RecordingModel(data_model)
         logger.info("✅ RecordingModel 实例化成功")
         
         # 测试工具类
-        from refactory_gui.utils.region_utils import RegionUtils
+        from gui.utils.region_utils import RegionUtils
         logger.info("✅ RegionUtils 导入成功")
         
-        from refactory_gui.utils.styles import STYLE_SHEET, FONT_TITLE
+        from gui.utils.styles import STYLE_SHEET, FONT_TITLE
         logger.info("✅ 样式工具导入成功")
         
         return True
@@ -163,9 +163,9 @@ def test_architecture():
     
     # 检查是否有循环导入
     try:
-        import refactory_gui.controllers.main_controller
-        import refactory_gui.models.data_collection_model
-        import refactory_gui.services.recording.screen_recorder
+        import gui.controllers.main_controller
+        import gui.models.data_collection_model
+        import gui.services.recording.screen_recorder
         logger.info("✅ 无循环导入问题")
     except Exception as e:
         logger.error(f"❌ 可能存在循环导入: {e}")
