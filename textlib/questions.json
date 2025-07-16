@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "content": "请写出快速排序的Python实现。",
+    "type": "code",
+    "language": "zh",
+    "difficulty": "easy",
+    "answer": "def quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[0]\n    left = [x for x in arr[1:] if x < pivot]\n    right = [x for x in arr[1:] if x >= pivot]\n    return quick_sort(left) + [pivot] + quick_sort(right)"
+  },
+  {
+    "id": 2,
+    "content": "Translate the following sentence into English: '我喜欢编程。'",
+    "type": "translation",
+    "language": "en",
+    "difficulty": "easy",
+    "answer": "I like programming."
+  },
+  {
+    "id": 3,
+    "content": "请抄写下列句子：'数据采集对于AI训练非常重要。'",
+    "type": "copy",
+    "language": "zh",
+    "difficulty": "easy",
+    "answer": "数据采集对于AI训练非常重要。"
+  },
+  {
+    "id": 4,
+    "content": "请用英文写一段关于人工智能的短文。",
+    "type": "essay",
+    "language": "en",
+    "difficulty": "medium"
+  },
+  {
+    "id": 5,
+    "content": "请抄写下列英文句子：'Machine learning is a subset of artificial intelligence.'",
+    "type": "copy",
+    "language": "en",
+    "difficulty": "easy",
+    "answer": "Machine learning is a subset of artificial intelligence."
+  },
+  {
+    "id": 6,
+    "content": "请将下列句子翻译成中文：'Data annotation is crucial for supervised learning.'",
+    "type": "translation",
+    "language": "zh",
+    "difficulty": "medium",
+    "answer": "数据标注对于有监督学习至关重要。"
+  },
+  {
+    "id": 7,
+    "content": "请写出二分查找的Python实现。",
+    "type": "code",
+    "language": "zh",
+    "difficulty": "medium",
+    "answer": "def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1"
+  },
+  {
+    "id": 8,
+    "content": "请抄写下列句子：'人工智能正在改变世界。'",
+    "type": "copy",
+    "language": "zh",
+    "difficulty": "easy",
+    "answer": "人工智能正在改变世界。"
+  },
+  {
+    "id": 9,
+    "content": "Write a function in Python to reverse a string.",
+    "type": "code",
+    "language": "en",
+    "difficulty": "easy",
+    "answer": "def reverse_string(s):\n    return s[::-1]"
+  },
+  {
+    "id": 10,
+    "content": "请用中文写一段关于数据安全的短文。",
+    "type": "essay",
+    "language": "zh",
+    "difficulty": "medium"
+  }
+]
